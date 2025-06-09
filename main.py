@@ -1,7 +1,24 @@
 import numpy as np
 import pandas as pd
 import random
+from sklearn import linear_model
+from sklearn.linear_model import LogisticRegression
+from sklearn import linear_model
+from scipy import stats
+from telebot import types
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+import io
 
+import heapq
+plt.rcParams['figure.figsize'] = [10, 7]
+
+import csv
+
+from lifelines.utils import concordance_index
+from lifelines import CoxPHFitter
+from lifelines.utils import concordance_index as cindex
 
 #Аргоноплазмова коагуляція (Класична)  (APC - 30 ВТ. 0.8 л/хв) - Argon_plasma_coagulation_(Classic) - 1
 #Аргоноплазмова коагуляція гібридна ( Hibrid APC) ( 30 Вт, 0.8л/хв - NaCl 0.9%  + Індігокарміну 0.2 %) - 2
