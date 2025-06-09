@@ -1,22 +1,30 @@
 pyTelegramBotAPI
-import telebot
-from telebot import types
-import numpy as np
-import pandas as pd
-import sklearn
-from sklearn.linear_model import LogisticRegression
-from sklearn import linear_model
-from scipy import stats
-import random
-from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
-import heapq
+telebot
+types
+numpy as np
+pandas as pd
+sklearn
+sklearn.linear_model 
+LogisticRegression
+linear_model
+scipy 
+stats
+random
+sklearn.model_selection 
+train_test_split
+matplotlib.pyplot as plt
+sklearn.ensemble 
+RandomForestClassifier
+sklearn.metrics 
+accuracy_score
+classification_report
+confusion_matrix
+heapq
 
-upgrade pip
 lifelines
 
-from lifelines.utils import concordance_index
-from lifelines import CoxPHFitter
-from lifelines.utils import concordance_index as cindex
+lifelines.utils 
+concordance_index
+lifelines
+CoxPHFitter
+concordance_index as cindex
