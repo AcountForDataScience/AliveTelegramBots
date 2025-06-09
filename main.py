@@ -1,5 +1,7 @@
 import numpy as np
 import pandas as pd
+import random
+
 
 #Аргоноплазмова коагуляція (Класична)  (APC - 30 ВТ. 0.8 л/хв) - Argon_plasma_coagulation_(Classic) - 1
 #Аргоноплазмова коагуляція гібридна ( Hibrid APC) ( 30 Вт, 0.8л/хв - NaCl 0.9%  + Індігокарміну 0.2 %) - 2
