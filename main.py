@@ -1,3 +1,4 @@
+import os
 import telebot
 import numpy as np
 import pandas as pd
