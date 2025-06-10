@@ -118,16 +118,6 @@ def RandomForestComplicationsProbabilityFunc(x1, x2, x3, x4, x5, x6, x7, x8, x9,
   # Прогнозування на тестовому наборі
   y_pred = model.predict(X_test)
 
-  # Оцінка моделі
-  accuracy = accuracy_score(y_test, y_pred)
-  print(f"Точність моделі: {accuracy:.2f}")
-
-  print("\nЗвіт про класифікацію:")
-  print(classification_report(y_test, y_pred))
-
-  print("\nМатриця плутанини:")
-  print(confusion_matrix(y_test, y_pred))
-
   # Тепер ви можете використовувати навчену модель для прогнозування ускладнень для нових пацієнтів
   # Наприклад, для нового пацієнта з такими характеристиками:
   NewPatient = pd.DataFrame({
@@ -162,7 +152,6 @@ def RandomForestComplicationsProbabilityFunc(x1, x2, x3, x4, x5, x6, x7, x8, x9,
 
   return feature_importance_dict, ComplicationsProbabilityAnswer, ComplicationsProbabilityPercent
 
-#print(f"\nПрогноз ускладнень для нового пацієнта: {ComplicationsProbability[0]}")
 # де 0 означає відсутність ускладнень, а 1 - наявність
 
 def LogisticRegressionComplicationsProbabilityFunc(x1, x2, x3, x4, x5, x6, x7, x8, x9, x10):
@@ -188,16 +177,6 @@ def LogisticRegressionComplicationsProbabilityFunc(x1, x2, x3, x4, x5, x6, x7, x
 
   # Прогнозування на тестовому наборі
   y_pred = model.predict(X_test)
-
-  # Оцінка моделі
-  accuracy = accuracy_score(y_test, y_pred)
-  print(f"Точність моделі: {accuracy:.2f}")
-
-  print("\nЗвіт про класифікацію:")
-  print(classification_report(y_test, y_pred))
-
-  print("\nМатриця плутанини:")
-  print(confusion_matrix(y_test, y_pred))
 
   # Тепер ви можете використовувати навчену модель для прогнозування ускладнень для нових пацієнтів
   # Наприклад, для нового пацієнта з такими характеристиками:
@@ -227,13 +206,7 @@ def LogisticRegressionComplicationsProbabilityFunc(x1, x2, x3, x4, x5, x6, x7, x
 
   return LogComplicationsProbabilityAnswer, LogComplicationsProbabilityPercent
 
-#print(f"\nПрогноз ускладнень для нового пацієнта: {ComplicationsProbability[0]}")
 # де 0 означає відсутність ускладнень, а 1 - наявність
-
-import pandas as pd
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.model_selection import train_test_split
-import numpy as np
 
 # Дані
 Treatment_type_Dic = {
@@ -257,7 +230,7 @@ for treatment_id, treatment_name in Treatment_type_Dic.items():
     X = treatment_data[features]
     y = treatment_data['Effective']
     if len(y.unique()) < 2:
-        print(f"⚠️ Недостатньо варіації для: {treatment_name}")
+      
         continue
 
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
@@ -280,29 +253,9 @@ def recommend_best_treatment(patient_data: dict):
     #return f"\n✅ Рекомендоване лікування: {best_treatment} (найвища ефективність)"
     return best_treatment, effectiveness_results_str_dic
 
-# 🔬 Приклад пацієнта
-new_patient = {
-    'Age': 9,
-    'RefluxEsophagitis': 45,
-    'TypeofHernia': 60,
-    'Type2Diabetes': 6,
-    'Obesity': 24,
-    'Prague_Сlassification_M': 4,
-    'Level_GSOD_M': 1
-}
-
-#print(recommend_best_treatment(new_patient))
-
-###Example How to predict the riskiest individuals
-#X_test_risky = X_test.copy(deep=True)
-#X_test_risky.loc[:, 'risk'] = rf.predict_proba(X_test)[:, 1] # Predicting our risk.
-#X_test_risky = X_test_risky.sort_values(by='risk', ascending=False) # Sorting by risk value.
-#X_test_risky.head()
-
-
 def permute_feature(df, feature):
 
-    permuted_df = df.copy(deep=True) # Make copy so we don't change original df
+    permuted_df = df.copy(deep=True) 
     permuted_features = np.random.permutation(permuted_df[feature])
     permuted_df[feature] = permuted_features
     return permuted_df
