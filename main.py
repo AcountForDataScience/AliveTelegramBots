@@ -12,7 +12,6 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import io
 
 import heapq
-plt.rcParams['figure.figsize'] = [10, 7]
 
 import csv
 
