@@ -287,7 +287,6 @@ def permutation_importance():
 
   return importances_dict_sorted
 importances_dict_sorted = permutation_importance()
-print(importances_dict_sorted)
 
 bot = telebot.TeleBot(os.getenv("BOT_TOKEN"))
 #bot = telebot.TeleBot('8017031200:AAEITscCqPkPbpgfqmIasR9PHNqXlXVNRo0')
@@ -371,7 +370,7 @@ def process_Level_GSOD_M_step(message):
     else:
       global Level_GSOD_M
       Level_GSOD_M = int(Level_GSOD_M_message)
-      #print(Level_GSOD_M)
+      
       markup = types.ReplyKeyboardMarkup(one_time_keyboard=False)
       markup.add('1', '2', '3', '4')
       msg = bot.reply_to(message, 'Тип грижі?', reply_markup=markup)
@@ -424,7 +423,7 @@ def process_Prague_Сlassification_M_step(message):
       markup = types.ReplyKeyboardMarkup(one_time_keyboard=False)
       markup.add(d_1, d_0)
       msg = bot.reply_to(message, 'Наявність цукрового діабету 2 типу?', reply_markup=markup)
-      print(Prague_Сlassification_M)
+      
       bot.register_next_step_handler(msg, process_Type2Diabetes_step)
   except Exception as e:
     bot.reply_to(message, 'oooops process_Prague_Сlassification_M_step')
