@@ -1,3 +1,4 @@
+import telebot
 import numpy as np
 import pandas as pd
 import random
@@ -287,7 +288,8 @@ def permutation_importance():
 importances_dict_sorted = permutation_importance()
 print(importances_dict_sorted)
 
-bot = telebot.TeleBot('8017031200:AAEITscCqPkPbpgfqmIasR9PHNqXlXVNRo0')
+bot = telebot.TeleBot(os.getenv("BOT_TOKEN"))
+#bot = telebot.TeleBot('8017031200:AAEITscCqPkPbpgfqmIasR9PHNqXlXVNRo0')
 #Here is the token for bot HiatusHerniaBarrettsDesease @HiatusHerniaBarrettsDesease_bot:
 
 @bot.message_handler(commands=['help', 'start'])
